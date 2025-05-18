@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Boka direkt</title>
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #f7f7f7;
+			margin: 0;
+			padding: 0;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 100vh;
+		}
+
+		#bookingForm {
+			background-color: #fff;
+			padding: 20px;
+			border-radius: 8px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		}
+
+		h1 {
+			text-align: center;
+			color: #333;
+		}
+
+		label {
+			font-weight: bold;
+			color: #555;
+		}
+
+		input[type="date"],
+		input[type="time"],
+		select {
+			width: 100%;
+			padding: 8px;
+			margin-bottom: 15px;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+			box-sizing: border-box;
+		}
+
+		button {
+			width: 100%;
+			padding: 10px;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+			transition: background-color 0.3s;
+		}
+
+		button[type="submit"] {
+			background-color: #007bff;
+			color: #fff;
+		}
+
+		button[type="submit"]:hover {
+			background-color: #0056b3;
+		}
+
+		button[type="cancel"] {
+			background-color: #dc3545;
+			color: #fff;
+		}
+
+		button[type="cancel"]:hover {
+			background-color: #c82333;
+		}
+
+		#confirmation {
+			display: none;
+			margin-top: 20px;
+			border: 1px solid #ccc;
+			padding: 20px;
+			border-radius: 8px;
+		}
+
+		#confirmation h2 {
+			margin-top: 0;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="bookingForm">
+		<h1>Boka direkt</h1>
+		<form id="bookingForm">
+			<label for="service">Выберите услугу:</label><br>
+			<select id="service" name="service">
+				<option value="haircut">Стрижка</option>
+				<option value="massage">Массаж</option>
+				<option value="nail">Маникюр</option>
+				<!-- Добавьте другие варианты услуг по вашему усмотрению -->
+			</select><br><br>
+			<label for="bookingDate">Дата:</label><br>
+			<input type="date" id="bookingDate" name="bookingDate"><br><br>
+			<label for="time">Время:</label><br>
+			<input type="time" id="time" name="time"><br><br>
+			<button type="submit" id="book">Забронировать</button>
+			<button type="button" id="cancel" style="display: none;">Отменить</button>
+		</form>
+	</div>
+	<div id="confirmation">
+		<h2>Спасибо за бронирование!</h2>
+		<p>Ваша услуга: <span id="confirmedService"></span></p>
+		<p>Дата: <span id="confirmedDate"></span></p>
+		<p>Время: <span id="confirmedTime"></span></p>
+	</div>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script>
+		$(function () {
+			$("#bookingDate").datepicker({
+				dateFormat: "yy-mm-dd",
+				minDate: 0
+			});
+
+			$("#book").click(function () {
+				var service = $("#service").val();
+				var date = $("#bookingDate").val();
+				var time = $("#time").val();
+
+				$("#confirmedService").text(service);
+				$("#confirmedDate").text(date);
+				$("#confirmedTime").text(time);
+				$("#confirmation").show();
+
+				$("#book").hide();
+				$("#cancel").show();
+			});
+
+			$("#cancel").click(function () {
+				$("#confirmation").hide();
+				$("#book").show();
+				$("#cancel").hide();
+			});
+		});
+	</script>
+</body>
+
+</html>

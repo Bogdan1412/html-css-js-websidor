@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+	<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+</head>
+
+<body>
+	<!-- Оболочка слайдера -->
+	<div class="content__slider swiper">
+		<!-- Двигающееся часть слайдера -->
+		<div class="content__wrapper swiper-wrapper">
+			<!-- Слайд -->
+			<div class="content__slide swiper-slide">
+				<h2>1</h2>
+				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur numquam mollitia ipsam cupiditate, quidem molestias hic ducimus similique. Saepe expedita maiores recusandae ipsam itaque aspernatur tenetur porro molestiae reprehenderit quas?</p>
+			</div>
+			<div class="content__slide swiper-slide">
+				<h2>2</h2>
+				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur numquam mollitia ipsam cupiditate, quidem molestias hic ducimus similique. Saepe expedita maiores recusandae ipsam itaque aspernatur tenetur porro molestiae reprehenderit quas?</p>
+			</div>
+			<div class="content__slide swiper-slide">
+				<h2>3</h2>
+				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur numquam mollitia ipsam cupiditate, quidem molestias hic ducimus similique. Saepe expedita maiores recusandae ipsam itaque aspernatur tenetur porro molestiae reprehenderit quas?</p>
+			</div>
+		</div>
+		<!-- Если нужна пагинация -->
+		<div class="swiper-pagination"></div>
+		<!-- Если нужна навигация (влево/вправо) -->
+		<button type="button" class="swiper-button-prev">prev</button>
+		<button type="button" class="swiper-button-next">next</button>
+		<!-- Если нужен скролбар -->
+		<div class="swiper-scrollbar"></div>
+	</div>
+	<script>
+		document.addEventListener('DOMContentLoaded', function () {
+			const swiperText = new Swiper('.content__slider');
+		});
+	</script>
+	<style>
+		.content__slider {
+			text-align: center;
+			min-height: 100vh;
+		}
+	</style>
+</body>
+
+</html>
